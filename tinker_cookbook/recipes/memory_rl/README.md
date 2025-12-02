@@ -1,6 +1,6 @@
 # memory-rl: Empirical Information Absorption Rates
 
-This recipe measures the "bit rate" of Reinforcement Learning through a minimal memory test: the environment hides a fixed integer and the policy must recover it.
+Implements the [RL memory test](https://github.com/thinking-machines-lab/tinker-project-ideas/blob/main/memorization-empirical-study.md) suggested by Thinking Machines Lab, measuring empirical learning rates under various reward functions.
 
 Recent theoretical discussions ([Ord](https://www.tobyord.com/writing/inefficiency-of-reinforcement-learning), [Li](https://richardli.xyz/post/information-bandwidth-rl/), [Schulman](https://thinkingmachines.ai/blog/lora/)) suggest that standard policy gradient methods with scalar rewards are bottlenecked by ~1 bit per episode. By sweeping reward channels (binary, binned scalar, dense per-bit) and signal sizes, we can empirically measure the **Information Absorption Rate** and compare it to theoretical bounds.
 
