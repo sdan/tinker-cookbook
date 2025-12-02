@@ -74,9 +74,18 @@ uv run python -m tinker_cookbook.recipes.memory_rl.rl_train \
     wandb_project=memory-rl-dense
 ```
 
-## Key Metrics
+## Some early results [wip]
 
-- `env/all/correct` — fraction of correct guesses (single-step)
-- `env/all/correct_bit` — per-bit accuracy (multi-step)
-- `bits_learned` — estimated mutual information between secret and predictions
-- `theory/max_bits_per_episode` — channel capacity upper bound for the config
+### RL continuous distance reward from secret number
+
+![Screenshot 2025-12-01 at 11:42:29 PM](https://github.com/user-attachments/assets/d132cbff-8ab8-4a72-9044-785ff88735a0)
+
+### RL binary reward from secret number
+
+![Screenshot 2025-12-01 at 11:45:11 PM](https://github.com/user-attachments/assets/6bf8ea62-21a8-4c60-afb6-41f23a25c5cd)
+
+### RL multi-step bit reward from secret bitstring
+
+![Screenshot 2025-12-01 at 11:45:51 PM](https://github.com/user-attachments/assets/40afd8bf-8f10-488b-bf2d-1b5f8ad494fa)
+
+
