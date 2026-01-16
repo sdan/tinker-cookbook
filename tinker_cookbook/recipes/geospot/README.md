@@ -78,18 +78,9 @@ data_dir=/data/train
 
 ```bash
 batch_size=64       # Images per step
-group_size=8        # Trajectories per image (GRPO)
+group_size=8
 learning_rate=4e-5
 temperature=1.0
-```
-
-### Reward Functions
-
-```bash
-reward_type=geo_r_hierarchical  # Default: distance + country/region partial credit
-reward_type=geo_r               # Geo-R paper piecewise linear
-reward_type=exp                 # Exponential decay: exp(-d/tau)
-reward_type=geoguessr           # GeoGuessr-style 0-5000 scoring
 ```
 
 ### Environment
@@ -102,19 +93,7 @@ max_zooms=3           # Max zoom tool calls (tool/agent only)
 zoom_cost=0.0         # Cost per zoom (optional)
 ```
 
-## File Structure
-
-```
-recipes/geospot/
-├── README.md        # This file
-├── train.py         # RL (GRPO) entry point
-├── train_sft.py     # SFT entry point
-├── geo_env.py       # Environment classes + rewards + dataset builder
-├── data.py          # GeoSample + data loading (HF + WebDataset)
-└── eval.py          # Evaluation utilities
-```
-
-## Algorithm: GRPO
+## Geoguessing Env
 
 Group Relative Policy Optimization:
 
@@ -123,7 +102,6 @@ Group Relative Policy Optimization:
 3. Center advantages within each group: `advantage_i = reward_i - mean(rewards)`
 4. Update policy using importance-weighted gradient
 
-This reduces variance compared to absolute rewards - the model learns which predictions are better *relative to other attempts on the same image*.
 
 ## Reward Functions
 
